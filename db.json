@@ -1,0 +1,22 @@
+{
+  "messages": [
+    {
+      "owner": "Stan",
+      "title": "Buy Milk",
+      "message": "Remember to buy milk.",
+      "id": 1
+    },
+    {
+      "owner": "Carole",
+      "title": "Trash",
+      "message": "Take the trash please. UPDATED 2",
+      "id": 2
+    },
+    {
+      "owner": "dan",
+      "title": "Vacation",
+      "message": "Dan need a vacation",
+      "id": 3
+    }
+  ]
+}
