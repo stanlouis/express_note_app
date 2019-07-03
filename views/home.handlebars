@@ -3,10 +3,10 @@
   <div class="header">
     <div>
       <strong>From:</strong> {{this.owner}}</div>
-    <a href="/edit_note">
+    <a href="/edit_note/">
       <i class="fa fa-pencil" aria-hidden="true"></i>
     </a>
-    <div class="delete"><i class="fa fa-trash-o"></i></div>
+    <div class="delete" data-id="{{this.id}}"><i class="fa fa-trash-o"></i></div>
   </div>
   <div class="contents">
     <div class="title">{{this.title}}</div>
@@ -25,3 +25,25 @@
     Add a note
   </a>
 </p>
+
+<script>
+  $('.delete').on('click', function () {
+
+    const element = $(this).parents().eq(1);
+    const deleteId = $(this).data("id");
+
+    $.ajax({
+      type: 'DELETE',
+      url: `/api/delete/${deleteId}`,
+      contentType: "application/json",
+      success: (data) => {
+        element.remove();
+      },
+      error: () => {
+        alert('oops')
+      }
+    })
+
+
+  })
+</script>

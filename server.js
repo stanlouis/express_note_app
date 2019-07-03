@@ -28,7 +28,7 @@ app.get('/add_note', (req, res) => {
   res.render('add_note');
 });
 
-app.post('/add_note', (req, res) => {
+app.post('/api/add_note', (req, res) => {
   fetch('http://localhost:3004/messages', {
     method: 'POST',
     body: JSON.stringify(req.body),
@@ -37,6 +37,15 @@ app.post('/add_note', (req, res) => {
     res.status(200).send();
   });
   res.redirect('/');
+});
+
+app.delete('/api/delete/:id', (req, res) => {
+  const { id } = req.params;
+  fetch(`http://localhost:3004/messages/${id}`, {
+    method: 'DELETE',
+  }).then(response => {
+    res.status(200).send();
+  });
 });
 
 const PORT = process.env.PORT || 3000;
