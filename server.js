@@ -48,6 +48,30 @@ app.delete('/api/delete/:id', (req, res) => {
   });
 });
 
+app.get('/edit_note/:id', (req, res) => {
+  fetch(`http://localhost:3004/messages/${req.params.id}`).then(response => {
+    response.json().then(data => {
+      res.render('edit_note', {
+        notes: data,
+      });
+    });
+  });
+});
+
+app.patch('/api/edit_note/:id', (req, res) => {
+  const { id } = req.params;
+
+  fetch(`http://localhost:3004/messages/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify(req.body),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(response => {
+    res.status(200).send();
+  });
+});
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => console.log(`App is listening on port ${PORT}`));

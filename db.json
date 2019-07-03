@@ -9,13 +9,13 @@
     {
       "owner": "Carole",
       "title": "Trash",
-      "message": "Take the trash please. UPDATED 2",
+      "message": "Take the trash out please.",
       "id": 2
     },
     {
       "owner": "David",
       "title": "Kitchen",
-      "message": "Clean the kitchen.",
+      "message": "Clean the kitchen top down.",
       "id": 4
     }
   ]
